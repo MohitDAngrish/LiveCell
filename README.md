@@ -17,13 +17,14 @@ I have used this open-source repo to convert coco-json into yolo format [json2yo
 
 For training i have used yolov8 and yolov9. Since it is a medical usecase we would prefer higher mAP(mask) model over a faster model with lower mAP(mask).
 
+For benchmarking, the confidence threshold used was 0.4, and iou threshold for nms was 0.6
 
 | Model Arch        | bbox (mAP) |  mask(mAP)|
 |:------------------|:-----------|-----------|
 | detectron2        |     64.35  |     65.85 |
 | yolov8x (520*704) |     66.0   |     53.5  |
-| yolov8x (704*704) |     65.1   |     58.2  |
-| yolov9e (704*704) |     65.1   |     58.2  |
+| yolov8x (704*704) |   **65.1** |  **58.2** |
+| yolov9e (704*704) |     62.1   |     57.9  |
 
 It is mentioned in the yolo docs that the model have higher accuracy when trained with sqaure image when compared to rectangle images. This can also be seen in the above table, model with square image input (704 * 704) has higher mAp when compared to rectangular image input (520 * 704).
 
