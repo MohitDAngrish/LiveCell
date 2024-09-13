@@ -2,6 +2,9 @@
 
 In this exercise, i have used SkBr3 cell for training. As in my analysis i have found that this data has the least missing annotations compared to the other cells.
 
+After your response of the mail, i even tried removing the images with large number of missing annotation (~1k from train set of LiveCell Data). The mask mAP improved by 3% even after a droping ~27% data points. I could have gotten better metric if i would have used sqaured image as input(explained below in training experiment).
+
+
 ## Data Distribution
 
 | Sample |  Count  | 
@@ -21,9 +24,9 @@ For benchmarking, the confidence threshold used was 0.4, and iou threshold for n
 
 | Model Arch        | bbox (mAP) |  mask(mAP)|
 |:------------------|:-----------|-----------|
-| detectron2        |     64.35  |     65.85 |
+| detectron2        |   *64.35*  |   *65.85* |
 | yolov8x (520*704) |     66.0   |     53.5  |
-| yolov8x (704*704) |   **65.1** |  **58.2** |
+| yolov8x (704*704) | **65.1**   | **58.2**  |
 | yolov9e (704*704) |     62.1   |     57.9  |
 
 It is mentioned in the yolo docs that the model have higher accuracy when trained with sqaure image when compared to rectangle images. This can also be seen in the above table, model with square image input (704 * 704) has higher mAp when compared to rectangular image input (520 * 704).
