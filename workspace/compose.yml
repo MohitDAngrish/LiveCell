@@ -1,0 +1,19 @@
+version : "3"
+
+services:
+  web:
+    build: .
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all  # Use 'all' to allow access to all available GPUs, or specify a number like 1
+              capabilities: [gpu]
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all  # Expose all GPUs to the container
+      - NVIDIA_DRIVER_CAPABILITIES=all  # Allow all driver capabilities
+    runtime: nvidia  # Specifies to use NVIDIA runtime
+    ports:
+      - 8000:8000
+    
