@@ -1,8 +1,8 @@
 # LiveCell
 
-In this exercise, i have used SkBr3 cell for training. As in my analysis i have found that this data has the least missing annotations compared to the other cells.
+In this exercise, i have used SkBr3 cell for training as in my analysis i have found that this data has the least missing annotations compared to the other cells.
 
-After your response of the mail, i even tried removing the images with large number of missing annotation (~1k from train set of LiveCell Data). The mask mAP improved by 3% even after a droping ~27% data points. I could have gotten better metric if i would have used sqaured image as input(explained below in training experiment).
+After your response of the mail, i have even tried removing the images with large number of missing annotation (~1k from train set of LiveCell Data). The mask mAP improved by 3% even after a droping ~27% data points. I could have gotten better metric if i would have used sqaured image as input(explained below in training experiment).
 
 
 ## Data Distribution
@@ -45,7 +45,7 @@ Output of endpoint for a sample image from test set.
 
 
 ### Alternative Approach
-Deploying model as a seperate endpoint using triton server, after converting the model into tensorrt format. Here model will be a different service of its own and can be consumed by anyone, wehreas in the first case the model is tightly coupled with the fast api service. In the interest of time i have not implemented this approach.
+Deploying model as a seperate endpoint using triton server, after converting the model into tensorrt format or any other platform support by triton server. Here model will be a different service of its own and can be consumed by anyone, wehreas in the first case the model is tightly coupled with the fast api service. In the interest of time i have not implemented this approach.
 
 In this approach:
 
